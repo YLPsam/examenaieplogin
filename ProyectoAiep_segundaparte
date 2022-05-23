@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" hrf="css/login.css"
+    <link rel="stylesheet" hrf="css/fondolegal.css"
+</head>
+<body>
+    <form action="validar.php" method= "post"></form>
+<h1>Sistema de Logeo</h1>
+<p>Usuario <input type="text" placeholder="Ingrese su nombre de usuario" name="usuario"></p>
+<p>Contraseña <input type="password" placeholder="Ingrese su contraseña" name="contraseña"></p>
+<input type="submit" value="Ingresar"
+ <!--introducción de datos tipo textos-->
+    </form>
+</body>
+    <form action="index.html" method="POST">
+        <input:type="text" name="texto" id="texto">
+        <input type="submit" value="añadir pendiente">
+    </form>
+
+    <div# id="todolist">
+        <?php
+        $usuario=$_POST['usuario'];
+        $contraseña=$_POST['contraseña'];
+        session_start();
+        $_SESSION['usuario']=$usuario;
+        
+        $conexion=mysqli_connect("localhost,root,,login")
+        
+        $consulta="SELECT*FROM usuarios where usuario='$usuario' and " contraseña='$contraseña'";
+        $resultado=mysqli_query($conexion ,$consulta);
+        
+        $filas=mysqli_num_rows($resultado);
+        
+        if($filas){
+            header("location:home.php");
+        
+
+        }
+        if(isset($_POST[´texto´])){
+            $text = $_POST['texto'];
+            echo $texto;
+            $sql = "INSERT INTU todoTABLE(text, completado)";
+                                VALUES('$texto', false)";
+            if($conexion->mysqli_query($sql)=== true){
+                echo'<div><form action=""><input type="checkbox"><div class="1texto"></div></form>/div>';
+                    
+            }else{
+                die("Error al insertar datos: " . $conexion->Error);
+            }
+
+        ?>
+    </div>
+
+
+</html>
